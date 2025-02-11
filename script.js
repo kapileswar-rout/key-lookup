@@ -44,7 +44,7 @@ function fetchData() {
         .catch(error => {
             console.error("Error:", error);
             loader.style.display = "none";
-            resultBox.innerHTML = "<span style='color: red;'>Server is not running. Please start the application or downloads Server.</span>";
+            resultBox.innerHTML = "<span style='color: red;'>Server is not running. Please start the application or download Server.</span>";
         });
 }
 
