@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Server Versions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Downloads</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Version</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Server</td>
+                        <td><a href="downloads/Server.exe" download>Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>Live</td>
+                        <td><a href="downloads/Live.exe" download>Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>Server 0.1</td>
+                        <td><a href="downloads/Server_0.1.exe" download>Download</a></td>
+                    </tr>
+                
+                        <td>Latest</td>
+                        <td><a href="downloads/" download>Commingsoon...</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button id="backBtn">⬅ Go Back</button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    let backBtn = document.getElementById("backBtn");
+    if (backBtn) {
+        backBtn.addEventListener("click", function() {
+            window.location.href = "index.html";
+        });
+    }
+});
+
+    </script>
+</body>
+</html>

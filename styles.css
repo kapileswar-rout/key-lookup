@@ -1,0 +1,174 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: white;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    width: 400px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    flex: 1;
+    outline: none;
+    text-align: center;
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #2ecc71;
+}
+
+#result {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    min-height: 20px;
+}
+
+.loader {
+    display: none;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #ffffff;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-animation {
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+/* Table Styling */
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: rgb(39, 208, 123);
+}
+
+/* Centering the Download Button */
+.download-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Styled Download Button (Smaller) */
+#downloadBtn {
+    background-color: white; /* Matches input field */
+    padding: 6px 12px; /* Reduced size */
+    font-size: 12px; /* Smaller text */
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.5); /* Matches input placeholder */
+    border: none;
+    border-radius: 50px; /* Curved like input */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px; /* Space between text and icon */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 200px; /* Smaller width */
+    text-decoration: none; /* Removes underline from link */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+#downloadBtn:hover {
+    background-color: #f8f8f8;
+    transform: scale(1.02);
+}
+
+/* Active Click Effect */
+#downloadBtn:active {
+    transform: scale(0.98);
+}
+
+/* Download Icon */
+.download-icon {
+    font-size: 14px; /* Slightly smaller icon */
+    opacity: 0.7;
+}
+
+/* Change download links to black */
+a {
+    color: rgb(50, 49, 49);
+    text-decoration: none; /* Removes underline */
+    font-weight: bold;
+}
+
+/* Change link color when hovered */
+a:hover {
+    color: gray;
+}
