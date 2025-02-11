@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Server Versions</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Styling for "Coming soon..." link */
+        .coming-soon {
+            color: inherit; /* Keeps the same color as the "Download" links */
+            text-decoration: none; /* Removes underline */
+            cursor: pointer; /* Changes cursor to pointer to indicate clickability */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Available Downloads</h1>
+        
         <div class="table-container">
             <table>
                 <thead>
@@ -18,6 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Normal Download Links -->
                     <tr>
                         <td>Server</td>
                         <td><a href="downloads/Server.exe" download>Download</a></td>
@@ -27,28 +38,67 @@
                         <td><a href="downloads/Live.exe" download>Download</a></td>
                     </tr>
                     <tr>
-                        <td>Server 0.1</td>
+                        <td>Server_v_0.1</td>
                         <td><a href="downloads/Server_0.1.exe" download>Download</a></td>
                     </tr>
-                
-                        <td>Latest</td>
-                         <a href="#" download style="pointer-events: none; color: gray;">Coming soon...</a></td>
+
+                    <!-- Latest Version with "Coming soon..." -->
+                    <tr>
+                        <td>Server_v_0.2</td>
+                        <td id="latest-download">
+                            <a id="countdown" class="coming-soon" onclick="startCountdown()">Coming soon...</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- Back Button -->
         <button id="backBtn">⬅ Go Back</button>
     </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    let backBtn = document.getElementById("backBtn");
-    if (backBtn) {
-        backBtn.addEventListener("click", function() {
-            window.location.href = "index.html";
-        });
-    }
-});
+            let backBtn = document.getElementById("backBtn");
 
+            // Redirect to index.html when "Go Back" is clicked
+            if (backBtn) {
+                backBtn.addEventListener("click", function() {
+                    window.location.href = "index.html";
+                });
+            }
+        });
+
+        /**
+         * Starts the countdown timer when "Coming soon..." is clicked
+         */
+        function startCountdown() {
+            const releaseDate = new Date("february 11, 2028 00:00:00").getTime(); // Release date
+            const countdownElement = document.getElementById("countdown");
+            const latestDownloadElement = document.getElementById("latest-download");
+
+            if (!countdownElement || !latestDownloadElement) return; // Prevents errors if elements are missing
+
+            let interval = setInterval(function () {
+                const now = new Date().getTime();
+                const timeLeft = releaseDate - now;
+
+                if (timeLeft > 0) {
+                    // Convert time difference into days, hours, minutes, and seconds
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    
+                    // Update "Coming soon..." text to show countdown
+                    countdownElement.innerHTML = `Available in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                } else {
+                    // Once the countdown reaches 0, replace text with a real download link
+                    clearInterval(interval);
+                    latestDownloadElement.innerHTML = `<a href="downloads/server_v_0.2.exe" download>Download</a>`;
+                }
+            }, 1000); // Update every second
+        }
     </script>
 </body>
 </html>
